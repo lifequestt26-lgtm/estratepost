@@ -2,51 +2,27 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculadora Pro Trading</title>
     <link rel="stylesheet" href="style.css">
     <link rel="manifest" href="manifest.json">
-    <meta name="theme-color" content="#121212">
 </head>
 <body>
-
     <div class="container">
         <div id="login" class="card">
-            <h2 style="color: #00e676; text-align: center;">Acesso Restrito</h2>
-            <p>Insira sua senha para acessar a calculadora:</p>
+            <h2>Acesso Restrito</h2>
             <input type="password" id="passInput" placeholder="Sua senha">
             <button onclick="validarLogin()">Entrar</button>
         </div>
 
         <div id="app" class="card" style="display:none;">
-            <h2 style="color: #00e676; text-align: center;">Calculadora de Trading</h2>
-            
-            <label>Investimento Total (R$):</label>
-            <input type="number" id="stake" placeholder="Ex: 100">
-            
-            <button onclick="calcular()" style="background: #00e676; color: #000; font-weight: bold;">Calcular Estratégia</button>
-
-            <div id="resultado" class="resultado-box" style="display:none; margin-top: 20px;"></div>
-            
-            <div class="instrucoes" style="margin-top: 20px; font-size: 0.85em; color: #bbb; border-top: 1px solid #444; padding-top: 15px;">
-                <h4>Como operar:</h4>
-                <ol style="padding-left: 20px;">
-                    <li>Digite o valor total que deseja investir.</li>
-                    <li><b>Entrada no 0x0:</b> Faça "Back 0x0" com 10% do valor.</li>
-                    <li><b>Entrada no Lay:</b> Faça "Lay ao Empate" com 90% do valor.</li>
-                    <li><b>Assim que sair o GOL:</b> Feche (Cash Out) ambas as posições imediatamente.</li>
-                </ol>
-            </div>
-            <button id="btnInstalar" style="display:none; background: #6200ea; color: white; margin-bottom: 15px;">
-    📥 Instalar App na Tela de Início
-</button>
-            <button onclick="location.reload()" style="background:#444; color: #fff; margin-top: 15px;">Sair</button>
-            <p style="text-align:center; font-size: 10px; margin-top: 20px; color: #666;">
-                Ferramenta de cálculo para Trading Esportivo. Responsabilidade de execução: Usuário.
-            </p>
+            <h2>Calculadora de Trading</h2>
+            <input type="number" id="stake" placeholder="Investimento Total (R$)">
+            <button onclick="calcular()">Calcular</button>
+            <div id="resultado" class="resultado-box" style="display:none;"></div>
+            <button onclick="location.reload()" style="background:#555;">Sair</button>
         </div>
     </div>
-
     <script src="script.js"></script>
 </body>
 </html>
