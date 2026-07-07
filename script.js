@@ -1,7 +1,28 @@
 function calcular() {
     const total = parseFloat(document.getElementById('stake').value);
     if (isNaN(total) || total <= 0) return alert("Digite um valor válido.");
+let deferredPrompt;
 
+window.addEventListener('beforeinstallprompt', (e) => {
+    // Impede o navegador de mostrar o prompt padrão imediatamente
+    e.preventDefault();
+    deferredPrompt = e;
+    
+    // Mostra o botão de instalar que criamos no HTML
+    const btnInstalar = document.getElementById('btnInstalar');
+    btnInstalar.style.display = 'block';
+
+    btnInstalar.addEventListener('click', (e) => {
+        btnInstalar.style.display = 'none';
+        deferredPrompt.prompt();
+        deferredPrompt.userChoice.then((choiceResult) => {
+            if (choiceResult.outcome === 'accepted') {
+                console.log('Usuário aceitou a instalação');
+            }
+            deferredPrompt = null;
+        });
+    });
+});
     const valor0x0 = total * 0.10;
     const valorLay = total * 0.90;
 
