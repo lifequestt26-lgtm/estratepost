@@ -2,28 +2,40 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Calculadora de Trading</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Calculadora Pro Trading</title>
+    <link rel="stylesheet" href="style.css">
     <link rel="manifest" href="manifest.json">
-    <style>
-        body { font-family: sans-serif; padding: 20px; background: #f4f4f4; }
-        .card { background: white; padding: 15px; border-radius: 10px; margin-bottom: 10px; }
-        input { width: 100%; padding: 10px; margin: 5px 0; box-sizing: border-box; }
-        button { width: 100%; padding: 10px; background: #28a745; color: white; border: none; border-radius: 5px; }
-    </style>
+    <meta name="theme-color" content="#121212">
 </head>
 <body>
-    <div id="login">
-        <h3>Login de Acesso</h3>
-        <input type="password" id="passInput" placeholder="Digite a senha">
-        <button onclick="validarLogin()">Entrar</button>
-    </div>
 
-    <div id="app" style="display:none;">
-        <h3>Calculadora de Gestão</h3>
-        <input type="number" id="stake" placeholder="Valor do Investimento Total (R$)">
-        <button onclick="calcular()">Calcular Estratégia</button>
-        <div id="resultado" class="card"></div>
+    <div class="container">
+        <div id="login" class="card">
+            <h2>Acesso Restrito</h2>
+            <p>Insira sua senha semanal ou mensal:</p>
+            <input type="password" id="passInput" placeholder="Sua senha">
+            <button onclick="validarLogin()">Entrar</button>
+        </div>
+
+        <div id="app" class="card" style="display:none;">
+            <h2>Calculadora de Trading</h2>
+            
+            <label>Investimento Total (R$):</label>
+            <input type="number" id="stake" placeholder="Ex: 100">
+            
+            <label>Odd 0x0:</label>
+            <input type="number" id="odd0x0" placeholder="Ex: 15.0">
+            
+            <label>Odd Lay ao Empate:</label>
+            <input type="number" id="oddLay" placeholder="Ex: 3.5">
+            
+            <button onclick="calcular()">Calcular Estratégia</button>
+
+            <div id="resultado" class="resultado-box" style="display:none;"></div>
+            
+            <button onclick="location.reload()" style="background:#444; margin-top: 10px;">Sair</button>
+        </div>
     </div>
 
     <script src="script.js"></script>

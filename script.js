@@ -1,28 +1,23 @@
-async function validarLogin() {
-    const resposta = await fetch('config.json');
-    const config = await resposta.json();
-    const input = document.getElementById('passInput').value;
-    
-    if (input === config.senhaSemanal || input === config.senhaMensal) {
-        document.getElementById('login').style.display = 'none';
-        document.getElementById('app').style.display = 'block';
-    } else {
-        alert("Senha incorreta!");
-    }
-}
-
 function calcular() {
     const total = parseFloat(document.getElementById('stake').value);
-    const perda0x0 = total * 0.10; // 10%
-    const stake0x0 = perda0x0; // O que você põe no 0x0
-    const stakeLayEmpate = total - stake0x0;
-    
-    document.getElementById('resultado').innerHTML = `
-        <p><b>Proteção 0x0 (10%):</b> R$ ${stake0x0.toFixed(2)}</p>
-        <p><b>Lay Empate:</b> R$ ${stakeLayEmpate.toFixed(2)}</p>
+    const odd0x0 = parseFloat(document.getElementById('odd0x0').value);
+    const oddLay = parseFloat(document.getElementById('oddLay').value);
+
+    // Definição técnica: 10% do total no 0x0 como proteção
+    const stake0x0 = total * 0.10; 
+    const stakeLay = total * 0.90;
+
+    // Cálculo do lucro na saída após gol (baseado na desvalorização da odd)
+    // O lucro aqui é uma estimativa do payout da exchange
+    const lucroEstimado = (stakeLay * (oddLay / 1.5)) - total; 
+
+    const divRes = document.getElementById('resultado');
+    divRes.style.display = 'block';
+    divRes.innerHTML = `
+        <p><b>Proteção 0x0:</b> R$ ${stake0x0.toFixed(2)}</p>
+        <p><b>Lay Empate:</b> R$ ${stakeLay.toFixed(2)}</p>
         <hr>
-        <p>Se sair gol do FAVORITO: <b>Lucro Estimado</b></p>
-        <p>Se sair gol do NÃO FAVORITO: <b>Recuperação (Break-even)</b></p>
-        <p>Se terminar 0x0: <b>Perda controlada de 10%</b></p>
+        <p>💰 <b>Lucro Estimado após Gol:</b> R$ ${lucroEstimado.toFixed(2)}</p>
+        <p>⚠️ <b>Stop Loss (0x0):</b> - R$ ${stake0x0.toFixed(2)}</p>
     `;
 }
