@@ -12,29 +12,36 @@
 
     <div class="container">
         <div id="login" class="card">
-            <h2>Acesso Restrito</h2>
-            <p>Insira sua senha semanal ou mensal:</p>
+            <h2 style="color: #00e676; text-align: center;">Acesso Restrito</h2>
+            <p>Insira sua senha para acessar a calculadora:</p>
             <input type="password" id="passInput" placeholder="Sua senha">
             <button onclick="validarLogin()">Entrar</button>
         </div>
 
-        <div id="app" class="card".
-            <h2>Calculadora de Trading</h2>
+        <div id="app" class="card" style="display:none;">
+            <h2 style="color: #00e676; text-align: center;">Calculadora de Trading</h2>
             
             <label>Investimento Total (R$):</label>
             <input type="number" id="stake" placeholder="Ex: 100">
             
-            <label>Odd 0x0:</label>
-            <input type="number" id="odd0x0" placeholder="Ex: 15.0">
-            
-            <label>Odd Lay ao Empate:</label>
-            <input type="number" id="oddLay" placeholder="Ex: 3.5">
-            
-            <button onclick="calcular()">Calcular Estratégia</button>
+            <button onclick="calcular()" style="background: #00e676; color: #000; font-weight: bold;">Calcular Estratégia</button>
 
-            <div id="resultado" class="resultado-box" style="display:none;"></div>
+            <div id="resultado" class="resultado-box" style="display:none; margin-top: 20px;"></div>
             
-            <button onclick="location.reload()" style="background:#444; margin-top: 10px;">Sair</button>
+            <div class="instrucoes" style="margin-top: 20px; font-size: 0.85em; color: #bbb; border-top: 1px solid #444; padding-top: 15px;">
+                <h4>Como operar:</h4>
+                <ol style="padding-left: 20px;">
+                    <li>Digite o valor total que deseja investir.</li>
+                    <li><b>Entrada no 0x0:</b> Faça "Back 0x0" com 10% do valor.</li>
+                    <li><b>Entrada no Lay:</b> Faça "Lay ao Empate" com 90% do valor.</li>
+                    <li><b>Assim que sair o GOL:</b> Feche (Cash Out) ambas as posições imediatamente.</li>
+                </ol>
+            </div>
+            
+            <button onclick="location.reload()" style="background:#444; color: #fff; margin-top: 15px;">Sair</button>
+            <p style="text-align:center; font-size: 10px; margin-top: 20px; color: #666;">
+                Ferramenta de cálculo para Trading Esportivo. Responsabilidade de execução: Usuário.
+            </p>
         </div>
     </div>
 
