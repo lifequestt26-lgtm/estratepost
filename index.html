@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculadora de Trading</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="manifest" href="manifest.json">
+    <style>
+        body { font-family: sans-serif; padding: 20px; background: #f4f4f4; }
+        .card { background: white; padding: 15px; border-radius: 10px; margin-bottom: 10px; }
+        input { width: 100%; padding: 10px; margin: 5px 0; box-sizing: border-box; }
+        button { width: 100%; padding: 10px; background: #28a745; color: white; border: none; border-radius: 5px; }
+    </style>
+</head>
+<body>
+    <div id="login">
+        <h3>Login de Acesso</h3>
+        <input type="password" id="passInput" placeholder="Digite a senha">
+        <button onclick="validarLogin()">Entrar</button>
+    </div>
+
+    <div id="app" style="display:none;">
+        <h3>Calculadora de Gestão</h3>
+        <input type="number" id="stake" placeholder="Valor do Investimento Total (R$)">
+        <button onclick="calcular()">Calcular Estratégia</button>
+        <div id="resultado" class="card"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
